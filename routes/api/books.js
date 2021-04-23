@@ -20,6 +20,16 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nobooksfound: 'No Books found' }));
 });
 
+// @route GET api/books
+// @description Get all books with filterKey
+// @access Public
+router.get('/',(req, res) => {
+  Book.find(req.params.filter)
+    .then(books => res.json(books))
+    .catch(err => res.status(404).json({ nobooksfound: 'No Books found' }));
+});
+
+
 // @route GET api/books/:id
 // @description Get single book by id
 // @access Public

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-//import axios from 'axios';
+import axios from 'axios';
 
 
 class SearchArticles extends Component {
@@ -21,9 +21,43 @@ class SearchArticles extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+ /* searchArticles(query){
+    // console.log("Print id: " + this.props.match.params.id);
+    axios
+    .get('http://localhost:8082/api/books/'+query)
+    .then(res => {
+      // console.log("Print-showBookDetails-API-response: " + res.data);
+      this.setState({
+        book: res.data
+      })
+    })
+    .catch(err => {
+      console.log("Error from SearchArticals");
+    })
+   
+     };
+
+*/
   onSubmit = e => {
     e.preventDefault();
 
+    const data = {title: this.state.title};
+    //searchArticles(data);
+
+
+    axios
+    .get('http://localhost:8082/api/books/'+data)
+    .then(res => {
+      // console.log("Print-showBookDetails-API-response: " + res.data);
+      this.setState({
+        book: res.data
+      })
+    })
+    .catch(err => {
+      console.log("Error from SearchArticals");
+    })
+   
+    
     // const data = {
     //   title: this.state.title,
     //   isbn: this.state.isbn,
@@ -49,6 +83,11 @@ class SearchArticles extends Component {
     //   .catch(err => {
     //     console.log("Error in CreateBook!");
     //   })
+
+
+
+
+
   };
 
   render() {
