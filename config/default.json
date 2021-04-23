@@ -1,5 +1,5 @@
 {
-    "mongoURI":
+    "mongoURI": "mongodb+srv://admin:admin@paperdatabase.rhlg1.mongodb.net/PaperDatabase?retryWrites=true&w=majority"
     
 }
 
