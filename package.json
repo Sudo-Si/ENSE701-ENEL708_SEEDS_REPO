@@ -1,5 +1,5 @@
 {
-  "name": "cise_merm",
+  "name": "seeds",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -16,9 +16,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sudo-Si/ENSE701-ENEL708_SEEDS_REPO/cise_mern/issues"
+    "url": "https://github.com/Sudo-Si/ENSE701-ENEL708_SEEDS_REPO/issues"
   },
-  "homepage": "https://github.com/Sudo-Si/ENSE701-ENEL708_SEEDS_REPO/cise_mern#readme",
+  "homepage": "https://github.com/Sudo-Si/ENSE701-ENEL708_SEEDS_REPO/#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
