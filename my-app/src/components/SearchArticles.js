@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-//import axios from 'axios';
+import axios from 'axios';
 
 
 class SearchArticles extends Component {
@@ -24,31 +24,20 @@ class SearchArticles extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    // const data = {
-    //   title: this.state.title,
-    //   isbn: this.state.isbn,
-    //   author: this.state.author,
-    //   description: this.state.description,
-    //   published_date: this.state.published_date,
-    //   publisher: this.state.publisher
-    // };
+    const data = {title: this.state.title};
+    //searchArticles(data);
 
-    // axios
-    //   .post('http://localhost:8082/api/books', data)
-    //   .then(res => {
-    //     this.setState({
-    //       title: '',
-    //       isbn:'',
-    //       author:'',
-    //       description:'',
-    //       published_date:'',
-    //       publisher:''
-    //     })
-    //     this.props.history.push('/');
-    //   })
-    //   .catch(err => {
-    //     console.log("Error in CreateBook!");
-    //   })
+    axios
+    .get('http://localhost:8082/api/books/'+data)
+    .then(res => {
+      // console.log("Print-showBookDetails-API-response: " + res.data);
+      this.setState({
+        book: res.data
+      })
+    })
+    .catch(err => {
+      console.log("Error from SearchArticals");
+    })
   };
 
   render() {
@@ -85,29 +74,41 @@ class SearchArticles extends Component {
                 />
               </form>
               <table>
-    <thead>
-    <tr>
-        <th>name</th>
-        <th>height</th>
-        <th>place</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Monte Falco</td>
-        <td>1658</td>
-        <td>Parco Foreste Casentinesi</td>
-    </tr>
-    <tr>
-        <td>Monte Falterona</td>
-        <td>1654</td>
-        <td>Parco Foreste Casentinesi</td>
-    </tr>
-    </tbody>
-</table>
-          </div>
+                <thead>
+                  <tr>
+                      <th>Author</th>
+                      <th>Title</th>
+                      <th>Journal</th>
+                      <th>Publisher</th>
+                      <th>Year</th>
+                      <th>Eprint</th>
+                      <th>Eprint Type</th>
+                      <th>Eprint Class</th>
+                      <th>Volume</th>
+                      <th>Number</th>
+                      <th>Page</th>
+                      <th>Annote</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>Monte Falco</td>
+                      <td>1658</td>
+                      <td>Parco Foreste Casentinesi</td>
+                  </tr>
+                  <tr>
+                      <td>Monte Falterona</td>
+                      <td>1654</td>
+                      <td>Parco Foreste Casentinesi</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+
           </div>
         </div>
+         
       </div>
     );
   }
